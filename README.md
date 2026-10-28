@@ -1,16 +1,59 @@
 # Knowledge
 
-Build and query an inspectable graph of claims, evidence and relationships with source and time attached.
+Follow a claim back to the evidence.
 
-## Consolidated capability
+For people connecting notes, documents and research. Knowledge turns supplied material into an inspectable graph, with sources and time attached, so you can trace relationships, question an apparent contradiction and see what changed.
 
-Portable method: [skills/knowledge/SKILL.md](skills/knowledge/SKILL.md). Install with `python3 scripts/capability.py install --dest ~/.agents/skills`. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md). The retained source guide below documents the optional original host integration and historical evidence; it is not a new outcome claim.
+[Explore the site](https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/)
+
+## What you get
+
+- **Keep the source within reach.** Carry provenance with the claim instead of relying on an answer with no path back to its inputs.
+- **Explore a specific question.** Use paths, evidence, gaps and timelines to navigate relationships rather than rereading an entire collection.
+- **Keep a history of changing claims.** Close a relation’s validity window and append its replacement instead of erasing the earlier view.
+
+## Start here
+
+```sh
+git clone https://github.com/michaeljabbour/amplifier-smart-tool-knowledge.git
+cd amplifier-smart-tool-knowledge
+python3 scripts/capability.py install --dest ~/.agents/skills
+```
+
+This installs the portable method and its packaged references into your agent skill folder. If your host uses another folder, pass that path to `--dest`. Start a new session or use your host’s skill refresh so it can discover the installed skill. Optional native tools are installed separately.
+
+Try this first task:
+
+> Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.
+
+## What you need
+
+- Python 3.11 or later for the portable install helper.
+- The deterministic library and CLI use Python and SQLite without a model key.
+- Native package and command identity stay knowledge; optional model-backed operations need a separately configured route.
+- Choose KNOWLEDGE_HOME explicitly when you want a disposable test graph.
+
+For the optional native interface, use a project virtual environment:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install .
+```
+
+## Evidence and limits
+
+Native graph, storage, analysis and interface tests passed. A passing graph operation does not establish that an extracted claim or model-written answer is correct.
+
+The worked examples on the site are fictional. They illustrate the output and decisions; they are not user results or measured benefit. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md) for retained interfaces and acceptance scope.
+
+---
 
 ## Retained source guide
 
 ### knowledge
 
-[![CI](https://github.com/michaeljabbour/amplifier-smart-tool-visualizer/actions/workflows/ci.yml/badge.svg)](https://github.com/michaeljabbour/amplifier-smart-tool-visualizer/actions/workflows/ci.yml)
+[![CI](https://github.com/michaeljabbour/amplifier-smart-tool-knowledge/actions/workflows/ci.yml/badge.svg)](https://github.com/michaeljabbour/amplifier-smart-tool-knowledge/actions/workflows/ci.yml)
 [![Smart Tools conformance](https://img.shields.io/badge/smart--tools%20conformance-17%2F17-2f5f8a)](https://github.com/microsoft/amplifier-smart-tools/tree/main/conformance)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-2f5f8a)](pyproject.toml)
 [![No runtime dependencies](https://img.shields.io/badge/runtime%20dependencies-none-2f5f8a)](pyproject.toml)
@@ -40,7 +83,7 @@ recorded live with `knowledge serve` (sped up).*
 ## Quick start (no model, no key)
 
 ```sh
-uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer"
+uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-smart-tool-knowledge"
 knowledge doctor
 
 knowledge ingest ./notes --method cooccurrence --graph notes   # a word network, no model
@@ -127,7 +170,7 @@ prints one capability in full.
 The tool stays a plain CLI any harness can call; Amplifier gets it through a behavior:
 
 ```sh
-amplifier bundle add 'git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer@main#subdirectory=behaviors/knowledge.yaml' --app
+amplifier bundle add 'git+https://github.com/michaeljabbour/amplifier-smart-tool-knowledge@main#subdirectory=behaviors/knowledge.yaml' --app
 ```
 
 It loads the `knowledge` skill from `skills/`, which tells the agent to install the CLI and use the

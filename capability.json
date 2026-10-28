@@ -25,8 +25,8 @@
   ],
   "examples": [
     {
-      "title": "Fictional worked example",
-      "brief": "A fictional task illustrating Knowledge.",
+      "title": "Investigate two conflicting notes",
+      "brief": "Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.",
       "before": "Two notes disagree, but a keyword search presents each in isolation.",
       "after": "A temporal path and source-linked evidence expose the disagreement for review.",
       "why": "Relationships and provenance make the conflict inspectable.",
@@ -78,5 +78,58 @@
   "docs": [
     "docs/CONSOLIDATION.md"
   ],
-  "publication_status": "Installation and evidence scopes are documented below."
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Follow a claim back to the evidence.",
+    "lead": "For people connecting notes, documents and research. Knowledge turns supplied material into an inspectable graph, with sources and time attached, so you can trace relationships, question an apparent contradiction and see what changed.",
+    "benefits": [
+      {
+        "title": "Keep the source within reach",
+        "body": "Carry provenance with the claim instead of relying on an answer with no path back to its inputs."
+      },
+      {
+        "title": "Explore a specific question",
+        "body": "Use paths, evidence, gaps and timelines to navigate relationships rather than rereading an entire collection."
+      },
+      {
+        "title": "Keep a history of changing claims",
+        "body": "Close a relation’s validity window and append its replacement instead of erasing the earlier view."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Choose the graph and input",
+        "detail": "Use structured additions or deterministic cooccurrence ingestion without a model. Optional extraction needs a configured provider."
+      },
+      {
+        "title": "Inspect the relationship",
+        "detail": "Follow a path or inspect its evidence, treating cooccurrence and candidate contradictions as signals to review."
+      },
+      {
+        "title": "Share an inspectable view",
+        "detail": "Export the graph or generate its self-contained offline viewer with the sources available for inspection."
+      }
+    ],
+    "use_when": [
+      "You need to trace a relationship across supplied documents.",
+      "A claim changed over time and the earlier state matters.",
+      "A team needs an offline view of a graph and its evidence."
+    ],
+    "not_for": [
+      "Treating word cooccurrence as proof of a semantic relationship.",
+      "Claiming that a structural graph gap proves a scientific research gap."
+    ],
+    "quickstart_prompt": "Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.",
+    "output_preview": "Claim: the export supports the selected format\nSource A: specification, revision one\nSource B: compatibility note, revision two\nRelationship: candidate contradiction — needs review\n\nInspect: source passages, validity windows, connecting path\nDecision: retain both claims until the actual export is checked\nShare: self-contained graph viewer",
+    "example_note": "Fictional graph investigation. The claim and notes are illustrative; no knowledge-correctness result is implied.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The deterministic library and CLI use Python and SQLite without a model key.",
+      "Native package and command identity stay knowledge; optional model-backed operations need a separately configured route.",
+      "Choose KNOWLEDGE_HOME explicitly when you want a disposable test graph."
+    ],
+    "proof_summary": "Native graph, storage, analysis and interface tests passed. A passing graph operation does not establish that an extracted claim or model-written answer is correct.",
+    "next_step": "Start with a small source collection and one relationship you want to understand."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge"
 }
