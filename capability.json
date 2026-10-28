@@ -1,0 +1,81 @@
+{
+  "id": "knowledge",
+  "display_name": "Knowledge",
+  "kind": "smart-tool",
+  "promise": "Build and query an inspectable graph of claims, evidence and relationships with source and time attached.",
+  "audience": "Researchers and agents connecting evidence across documents.",
+  "trigger": "Ingest, connect, trace, challenge or explore knowledge from supplied material.",
+  "skill_path": "skills/knowledge",
+  "modes": [
+    {
+      "name": "Build",
+      "when": "Sources need an inspectable graph.",
+      "output": "Nodes and edges with source, method and temporal provenance."
+    },
+    {
+      "name": "Investigate",
+      "when": "A relationship, contradiction or gap needs examination.",
+      "output": "Paths, evidence, timeline and qualified gaps."
+    },
+    {
+      "name": "Explore",
+      "when": "A person needs to inspect or reuse the graph.",
+      "output": "A self-contained viewer or portable graph export."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Fictional worked example",
+      "brief": "A fictional task illustrating Knowledge.",
+      "before": "Two notes disagree, but a keyword search presents each in isolation.",
+      "after": "A temporal path and source-linked evidence expose the disagreement for review.",
+      "why": "Relationships and provenance make the conflict inspectable.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Cooccurrence, centrality and candidate contradictions are not proof that a claim is true."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "python3 -m pip install ."
+  ],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "80 native tests passed after canonical distribution and test-package isolation updates."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-smart-tool-visualizer",
+      "commit": "6bf67b59b7bf7a15f1b9877ab724500afae2a399",
+      "paths": [
+        "docs/VISION.md",
+        "contracts/cli.v1.md",
+        "contracts/graph.v1.md",
+        "src"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md"
+  ]
+}

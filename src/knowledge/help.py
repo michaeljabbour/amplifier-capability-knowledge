@@ -13,7 +13,7 @@ from importlib.resources import files
 
 NAME = "knowledge"
 VERSION = "0.3.0"
-DISTRIBUTION = "amplifier-smart-tool-visualizer"
+DISTRIBUTION = "amplifier-smart-tool-knowledge"
 
 _PROVIDER_ARGS = ("--provider / --model / --complete-cmd",
                   "Which model answers. Without these: KNOWLEDGE_PROVIDER, then the agent harness you run in "

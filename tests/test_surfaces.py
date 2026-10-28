@@ -11,7 +11,7 @@ import xml.dom.minidom
 import knowledge as kg
 from knowledge import help as h
 from knowledge.mcp_server import handle
-from conftest import ROOT, run_cli
+from tests.conftest import ROOT, run_cli
 
 
 def test_manifest_matches_package_version():

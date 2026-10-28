@@ -1,5 +1,5 @@
 [project]
-name = "amplifier-smart-tool-visualizer"
+name = "amplifier-smart-tool-knowledge"
 version = "0.3.0"
 description = "A knowledge graph any agent can query and add to, and people can explore: concepts and typed relations with sources, confidence and time."
 readme = "README.md"
@@ -8,7 +8,7 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/michaeljabbour/amplifier-smart-tool-visualizer"
+Repository = "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge"
 
 [project.optional-dependencies]
 pdf = ["pypdf>=6.21.2"]

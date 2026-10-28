@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "status": "local-functional-baseline",
+  "source_commit": "6bf67b59b7bf7a15f1b9877ab724500afae2a399",
+  "python": "3.12.5",
+  "fixture_content": "fictional",
+  "model_calls": 0,
+  "notes": "80 native tests passed after canonical distribution and test-package isolation updates.",
+  "limitations": [
+    "Cooccurrence, centrality and candidate contradictions are not proof that a claim is true."
+  ],
+  "files": {
+    "native.log": "3cc19b2e10efe24cdf7d6e8171827810ebdccc0907e20a24f26283b6d44eb3de",
+    "functional.log": "23827a552af94b23a484dfe180a8ddde2965651414901524be93612a5b192a8d"
+  }
+}

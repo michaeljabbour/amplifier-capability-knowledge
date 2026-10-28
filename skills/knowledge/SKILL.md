@@ -1,39 +1,16 @@
 ---
 name: knowledge
-description: "Turns notes, papers, docs, code and agent sessions into a knowledge graph that any agent can query and add to, and people can explore: concepts and typed relations with sources, confidence and time, so it keeps what was believed, why, and what replaced it. Finds paths between ideas, the evidence behind a claim, contradictions, topics, central concepts and the gaps between topics, and draws it all as an interactive map, live while agents work. Use for 'build a knowledge graph', 'map these notes', 'how does X relate to Y', 'what supports or contradicts this', 'what are we missing', 'what changed', 'shared memory for agents', 'visualise this corpus', or exporting to Obsidian, Gephi or Cytoscape."
+description: "Build and query an inspectable graph of claims, evidence and relationships with source and time attached. Use when asked to ingest, connect, trace, challenge or explore knowledge from supplied material."
 ---
 
-# knowledge
+# Knowledge
 
-This is the `knowledge` smart tool. If `knowledge` is not on your PATH, install it, then let it
-teach you the rest:
+Use the retained knowledge CLI or knowledge.lib. Run knowledge --help and knowledge <capability> --help for exact arguments. Its deterministic core uses Python and SQLite; model-backed extraction, reconciliation and answers are optional capabilities.
 
-```
-uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer@main"
-knowledge --help
-```
+Build: choose the graph explicitly, preserve source identity and distinguish cooccurrence from an asserted semantic relationship. knowledge ingest --method cooccurrence provides a no-model path; use add for already structured evidence. Inspect extraction provenance before treating edges as facts.
 
-Run `knowledge --help` and follow it. For one capability: `knowledge <capability> --help`.
+Investigate: use path, evidence, contradictions, gaps and timeline to test a specific question. Read references/graph.v1.md when interpreting validity windows. Search rank and graph centrality are navigation signals. Candidate contradictions need judgment; a structural gap does not establish a scientific research gap. Supersede an obsolete relation instead of erasing its history.
 
-## You are the model
+Explore: generate the self-contained viewer or export the graph as documented in references/cli.v1.md. Numbered source passages support an answer; community summaries are navigation aids. Do not send private graph content to a provider without authorization. A host completion command is optional; deterministic graph reads require no API key.
 
-Inside an agent harness (Amplifier, Claude Code, Codex) the model-backed commands stop with
-`host_model` (exit 3) instead of spending an API key. That is expected: do that step yourself
-with the deterministic route.
-
-| Instead of | Do |
-|---|---|
-| `ingest` | `ingest PATH --method agent --json`, extract relations from `result.task.chunks` with `result.task.system`, then `add relations.json` |
-| `ask` | `context "QUESTION" --json`, then answer from it and cite `[n]` |
-| `report` | `communities` |
-| `questions` | `gaps` |
-| `reconcile` | `contradictions`, then `supersede EDGE_ID` or `relate A contradicts B` |
-
-Do not add `--provider` unless the person asks to spend a key.
-
-To show the graph, pass the person's question: `visualize --for "THEIR QUESTION" --open`. It opens
-the form that answers it (timeline, argument, steps, matrix, rhythm or map). If it stops with `needs_clarification`, ask them `result.question` and
-run the command from `result.choices` that matches their answer. Never pick for them.
-
-Graphs are kept in a per-user data folder (`knowledge stats` shows where). Set `KNOWLEDGE_HOME`
-to keep one project's graphs apart, and name graphs with `--graph NAME`.
+The graph library, analysis algorithms, SQLite store, adapters, viewer and existing records are retained. Knowledge owns graph relationships; it does not absorb the separate general storage capability or silently migrate Memory.

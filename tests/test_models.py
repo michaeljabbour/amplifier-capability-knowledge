@@ -6,7 +6,7 @@ import pytest
 
 import knowledge as kg
 from knowledge.errors import ToolError
-from conftest import STUB
+from tests.conftest import STUB
 
 
 def fake_extractor(system, prompt):
@@ -27,7 +27,7 @@ def test_llm_ingest_with_a_function(graph):
 
 
 def test_llm_ingest_through_complete_cmd(graph):
-    from conftest import EXAMPLE
+    from tests.conftest import EXAMPLE
 
     r = kg.ingest(graph, documents=kg.load_documents(EXAMPLE / "notes"), complete_cmd=STUB)
     assert r["edges_added"] >= 4
