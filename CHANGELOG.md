@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-28 — Film on the site
+
+- Show the 80-second trailer on the site, with its poster and a download link. The site generator can now show a film from any folder in the repo.
+
 ## 2026-10-28 — Public site and first-use guide
 
 - Lead with the intended user, concrete benefits, a fictional output preview and a first task.
