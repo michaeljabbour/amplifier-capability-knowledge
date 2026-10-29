@@ -133,11 +133,10 @@
   },
   "repository_url": "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge",
   "film": {
-    "file": "trailer",
-    "dir": "docs/images",
-    "seconds": 80,
-    "heading": "Watch the graph answer back.",
-    "blurb": "An 80-second tour, with no narration: a timeline of a plan that was replaced, an argument with the quotes for and against a claim, a vague question that gets a question back, and a live graph filling in as relations land.",
-    "note": "Recorded from the real tool on public documents. It shows how the views work; it does not report results."
+    "file": "knowledge-film",
+    "seconds": 70,
+    "heading": "Keep the quote. Keep the date.",
+    "blurb": "In 70 seconds, Mags the magpie grabs claims and leaves their sources behind, so a help page and a newer note disagree about when online orders close. Knowledge reads the notes into a map where every link keeps its quote, source and date: you get a timeline instead of one answer, a flag on the contradiction for you to decide, and a question back when you ask something vague. Captions are on the player; a transcript is below.",
+    "note": "The bakery, its notes and the map are a fictional example. The film shows how the tool behaves; it does not report results."
   }
 }

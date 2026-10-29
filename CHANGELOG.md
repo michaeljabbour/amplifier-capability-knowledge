@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-29 — Film
+
+- Add a 70-second film to the site, with captions, a transcript, a poster and a 15-second cut. The example in it is fictional, and it reports no results.
+
 ## 2026-10-28 — Film on the site
 
 - Show the 80-second trailer on the site, with its poster and a download link. The site generator can now show a film from any folder in the repo.

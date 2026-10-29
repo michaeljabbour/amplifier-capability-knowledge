@@ -2,6 +2,8 @@
 
 Follow a claim back to the evidence.
 
+Watch the [70-second film](https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/#film): a claim that lost its source, and how the tool puts the quote and the date back on it. The example in it is fictional.
+
 For people connecting notes, documents and research. Knowledge turns supplied material into an inspectable graph, with sources and time attached, so you can trace relationships, question an apparent contradiction and see what changed.
 
 [Explore the site](https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/)
