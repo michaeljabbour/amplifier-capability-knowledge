@@ -137,6 +137,20 @@ def resolve(provider: str | None = None, model: str | None = None, complete_cmd:
         exit_code=SETUP)
 
 
+def token_url_allowed(url: str) -> bool:
+    """True when an API key may be sent to `url`: https anywhere, or http to loopback only."""
+    from urllib.parse import urlsplit
+
+    try:
+        parts = urlsplit(url or "")
+        scheme, host = parts.scheme.lower(), (parts.hostname or "").lower()
+    except ValueError:
+        return False
+    if scheme == "https":
+        return bool(host)
+    return scheme == "http" and host in {"localhost", "127.0.0.1", "::1"}
+
+
 def _check_key(provider: str) -> None:
     env = {"anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY"}.get(provider)
     if env and not os.environ.get(env):
@@ -162,6 +176,10 @@ def call(route: Route, system: str, prompt: str, *, complete: Complete | None = 
             return "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
         if route.kind == "openai":
             base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+            if not token_url_allowed(base):
+                raise ToolError("insecure_endpoint", "Refusing to send OPENAI_API_KEY to a non-https, non-loopback "
+                                f"OPENAI_BASE_URL ({base}).",
+                                hint="Use an https:// URL, or http:// to localhost/127.0.0.1/::1.", exit_code=SETUP)
             data = _post(f"{base}/chat/completions", {"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
                          {"model": route.model, "messages": [{"role": "system", "content": system},
                                                              {"role": "user", "content": prompt}]}, timeout)
@@ -185,7 +203,13 @@ def call(route: Route, system: str, prompt: str, *, complete: Complete | None = 
 
 def _post(url: str, headers: dict, body: dict, timeout: float) -> dict:
     req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
-                                 headers={"content-type": "application/json", **headers})
+                                 headers={"content-type": "application/json"})
+    for name, value in headers.items():
+        if name.lower() in {"authorization", "x-api-key"}:
+            # A redirect target was not selected by the caller's credential policy.
+            req.add_unredirected_header(name, value)
+        else:
+            req.add_header(name, value)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 - fixed provider URLs
             return json.loads(resp.read().decode())

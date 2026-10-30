@@ -93,7 +93,7 @@
       },
       {
         "title": "Keep a history of changing claims",
-        "body": "Close a relation’s validity window and append its replacement instead of erasing the earlier view."
+        "body": "Close a relation\u2019s validity window and append its replacement instead of erasing the earlier view."
       }
     ],
     "walkthrough": [
@@ -120,7 +120,7 @@
       "Claiming that a structural graph gap proves a scientific research gap."
     ],
     "quickstart_prompt": "Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.",
-    "output_preview": "Claim: the export supports the selected format\nSource A: specification, revision one\nSource B: compatibility note, revision two\nRelationship: candidate contradiction — needs review\n\nInspect: source passages, validity windows, connecting path\nDecision: retain both claims until the actual export is checked\nShare: self-contained graph viewer",
+    "output_preview": "Claim: the export supports the selected format\nSource A: specification, revision one\nSource B: compatibility note, revision two\nRelationship: candidate contradiction \u2014 needs review\n\nInspect: source passages, validity windows, connecting path\nDecision: retain both claims until the actual export is checked\nShare: self-contained graph viewer",
     "example_note": "Fictional graph investigation. The claim and notes are illustrative; no knowledge-correctness result is implied.",
     "install_notes": [
       "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
@@ -131,12 +131,94 @@
     "proof_summary": "Native graph, storage, analysis and interface tests passed. A passing graph operation does not establish that an extracted claim or model-written answer is correct.",
     "next_step": "Start with a small source collection and one relationship you want to understand."
   },
-  "repository_url": "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge",
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-knowledge",
+  "name": "amplifier-capability-knowledge",
+  "legacy_names": [
+    "amplifier-smart-tool-knowledge",
+    "knowledge"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": "0.3.0",
+  "version_basis": "Existing release metadata",
+  "engine": "LLM",
+  "engine_components": {
+    "graph_storage_analysis_export": "None",
+    "optional_extraction_answers_reconciliation": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle",
+    "cli",
+    "python-library"
+  ],
+  "portable_method": {
+    "name": "knowledge",
+    "path": "skills/knowledge",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Build and query an inspectable graph of claims, evidence and relationships with source and time attached.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": "amplifier-smart-tool-knowledge",
+      "entrypoints": {
+        "knowledge": "knowledge.cli:main"
+      },
+      "docs": [
+        "docs/CONSOLIDATION.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Cooccurrence, centrality and candidate contradictions are not proof that a claim is true."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
   "film": {
     "file": "knowledge-film",
     "seconds": 70,
     "heading": "Keep the quote. Keep the date.",
     "blurb": "In 70 seconds, Mags the magpie grabs claims and leaves their sources behind, so a help page and a newer note disagree about when online orders close. Knowledge reads the notes into a map where every link keeps its quote, source and date: you get a timeline instead of one answer, a flag on the contradiction for you to decide, and a question back when you ask something vague. Captions are on the player; a transcript is below.",
     "note": "The bakery, its notes and the map are a fictional example. The film shows how the tool behaves; it does not report results."
-  }
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge"
+  ]
 }

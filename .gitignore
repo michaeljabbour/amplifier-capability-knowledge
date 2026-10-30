@@ -19,3 +19,4 @@ knowledge-*-vault/
 *.db-shm
 .work/
 _site/
+.research/
