@@ -1,8 +1,8 @@
 # Optional. Mounts `knowledge mcp` (stdio) through Amplifier's MCP tool module, so the capabilities
 # appear as tools named mcp_knowledge_knowledge_<capability> (tool-mcp prefixes mcp_<server>_). Needs the CLI on PATH first:
-#   uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer@main"
+#   uv tool install "amplifier-smart-tool-knowledge @ git+https://github.com/michaeljabbour/amplifier-capability-knowledge@main"
 # Without an install, use command: uvx with
-#   args: ["--from", "git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer@main", "knowledge", "mcp"]
+#   args: ["--from", "git+https://github.com/michaeljabbour/amplifier-capability-knowledge@main", "knowledge", "mcp"]
 # (slower: uvx resolves the package each time a session starts).
 # Over MCP the model-backed tools return a task for the calling agent instead of calling a model.
 bundle:

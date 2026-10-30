@@ -8,4 +8,4 @@ tools:
     source: git+https://github.com/microsoft/amplifier-bundle-skills@main#subdirectory=modules/tool-skills
     config:
       skills:
-        - "git+https://github.com/michaeljabbour/amplifier-smart-tool-visualizer@main#subdirectory=skills"
+        - "git+https://github.com/michaeljabbour/amplifier-capability-knowledge@main#subdirectory=skills"

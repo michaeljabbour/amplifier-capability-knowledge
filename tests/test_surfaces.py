@@ -154,3 +154,29 @@ def test_version_flags():
     for flag in ("-V", "--version"):
         p = run_cli(flag)
         assert p.returncode == 0 and h.VERSION in p.stdout
+
+
+def test_bundle_skill_source_targets_packaged_method():
+    """A historical producer is provenance, not necessarily an installation alias."""
+    from urllib.parse import parse_qs, urlsplit
+
+    manifest = json.loads((ROOT / "capability.json").read_text())
+    behavior = (ROOT / "behaviors" / "knowledge.yaml").read_text()
+    sources = re.findall(r"git\+https://github\.com/michaeljabbour/[^\s\"']+", behavior)
+    assert len(sources) == 1
+    source = urlsplit(sources[0][4:])
+    repository, ref = source.path.rsplit("@", 1)
+    assert source.scheme == "https" and source.netloc == "github.com"
+    assert "https://github.com" + repository == manifest["repository_url"]
+    assert ref == "main"
+    subdir = parse_qs(source.fragment)["subdirectory"][0]
+    collection = (ROOT / subdir).resolve()
+    collection.relative_to(ROOT)
+    method = (ROOT / manifest["portable_method"]["path"]).resolve()
+    method.relative_to(collection)
+    frontmatter = re.match(r"^---\n(.*?)\n---", (method / "SKILL.md").read_text(), re.S).group(1)
+    name = re.search(r"^name:\s*(.+)$", frontmatter, re.M).group(1).strip()
+    assert name == manifest["portable_method"]["name"] == "knowledge"
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]
+    assert project["name"] == manifest["interfaces"]["native"]["distribution"]
+    assert project["scripts"]["knowledge"] == "knowledge.cli:main"
