@@ -2,11 +2,11 @@
 
 Follow a claim back to the evidence.
 
-Watch the [70-second film](https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/#film): a claim that lost its source, and how the tool puts the quote and the date back on it. The example in it is fictional.
+Watch the [70-second film](https://michaeljabbour.github.io/amplifier-capability-knowledge/#film): a claim that lost its source, and how the tool puts the quote and the date back on it. The example in it is fictional.
 
 For people connecting notes, documents and research. Knowledge turns supplied material into an inspectable graph, with sources and time attached, so you can trace relationships, question an apparent contradiction and see what changed.
 
-[Explore the site](https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/)
+[Explore the site](https://michaeljabbour.github.io/amplifier-capability-knowledge/)
 
 ## What you get
 
@@ -17,8 +17,8 @@ For people connecting notes, documents and research. Knowledge turns supplied ma
 ## Start here
 
 ```sh
-git clone https://github.com/michaeljabbour/amplifier-smart-tool-knowledge.git
-cd amplifier-smart-tool-knowledge
+git clone https://github.com/michaeljabbour/amplifier-capability-knowledge.git
+cd amplifier-capability-knowledge
 python3 scripts/capability.py install --dest ~/.agents/skills
 ```
 
@@ -55,7 +55,7 @@ The worked examples on the site are fictional. They illustrate the output and de
 
 ### knowledge
 
-[![CI](https://github.com/michaeljabbour/amplifier-smart-tool-knowledge/actions/workflows/ci.yml/badge.svg)](https://github.com/michaeljabbour/amplifier-smart-tool-knowledge/actions/workflows/ci.yml)
+[![CI](https://github.com/michaeljabbour/amplifier-capability-knowledge/actions/workflows/ci.yml/badge.svg)](https://github.com/michaeljabbour/amplifier-capability-knowledge/actions/workflows/ci.yml)
 [![Smart Tools conformance](https://img.shields.io/badge/smart--tools%20conformance-17%2F17-2f5f8a)](https://github.com/microsoft/amplifier-smart-tools/tree/main/conformance)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-2f5f8a)](pyproject.toml)
 [![No runtime dependencies](https://img.shields.io/badge/runtime%20dependencies-none-2f5f8a)](pyproject.toml)
@@ -85,7 +85,7 @@ recorded live with `knowledge serve` (sped up).*
 ## Quick start (no model, no key)
 
 ```sh
-uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-smart-tool-knowledge"
+uv tool install "amplifier-smart-tool-visualizer @ git+https://github.com/michaeljabbour/amplifier-capability-knowledge"
 knowledge doctor
 
 knowledge ingest ./notes --method cooccurrence --graph notes   # a word network, no model
@@ -172,7 +172,7 @@ prints one capability in full.
 The tool stays a plain CLI any harness can call; Amplifier gets it through a behavior:
 
 ```sh
-amplifier bundle add 'git+https://github.com/michaeljabbour/amplifier-smart-tool-knowledge@main#subdirectory=behaviors/knowledge.yaml' --app
+amplifier bundle add 'git+https://github.com/michaeljabbour/amplifier-capability-knowledge@main#subdirectory=behaviors/knowledge.yaml' --app
 ```
 
 It loads the `knowledge` skill from `skills/`, which tells the agent to install the CLI and use the
