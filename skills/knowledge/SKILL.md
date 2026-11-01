@@ -14,3 +14,7 @@ Investigate: use path, evidence, contradictions, gaps and timeline to test a spe
 Explore: generate the self-contained viewer or export the graph as documented in references/cli.v1.md. Numbered source passages support an answer; community summaries are navigation aids. Do not send private graph content to a provider without authorization. A host completion command is optional; deterministic graph reads require no API key.
 
 The graph library, analysis algorithms, SQLite store, adapters, viewer and existing records are retained. Knowledge owns graph relationships; it does not absorb the separate general storage capability or silently migrate Memory.
+
+## Optional coaching checkpoint
+
+Read [the local coaching guide](references/coaching-session.v1.md) only when the person asks for practice or optional session bookkeeping. Keep native operations direct and unattended; the guide adds only a separate opt-in pre/post review.
